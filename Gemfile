@@ -5,7 +5,6 @@ ruby '2.6.4'
 
 
 gem 'rails', '~> 6.0.0'
-gem 'sqlite3', '~> 1.4'
 gem 'sass-rails', '~> 5.0'
 gem 'webpacker', '~> 4.0'
 #gem 'puma', '~> 3.7'
@@ -18,9 +17,8 @@ gem 'popper', '~> 0.5.1'
 gem 'stock_quote', '~> 3.0'
 gem 'devise', '~> 4.2'
 
-group :production do
-  gem 'pg', '~> 0.18.4'
-end
+gem 'sqlite3', groups: %w(test development), require: false
+gem 'pg', groups: %w(production), require: false
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

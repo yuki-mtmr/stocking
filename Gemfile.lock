@@ -314,7 +314,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   jquery-rails (~> 4.3, >= 4.3.5)
   listen (>= 3.0.5, < 3.2)
-  pg (~> 0.18.4)
+  pg
   popper (~> 0.5.1)
   pry-byebug
   pry-doc
@@ -324,7 +324,7 @@ DEPENDENCIES
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3 (~> 1.4)
+  sqlite3
   stock_quote (~> 3.0)
   turbolinks (~> 5)
   web-console (>= 3.3.0)
