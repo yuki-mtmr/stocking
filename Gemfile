@@ -18,6 +18,10 @@ gem 'popper', '~> 0.5.1'
 gem 'stock_quote', '~> 3.0'
 gem 'devise', '~> 4.2'
 
+group :production do
+  gem 'pg', '~> 0.18.4'
+end
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-rails'
