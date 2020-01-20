@@ -1,4 +1,15 @@
 <% begin %>
+  <% @logo = StockQuote::Stock.logo(@stock.ticker) %>
+<% rescue StandardError %>
+  <% @logo = nil %>
+<% end %>
+<% if !@logo %>
+  銘柄: <%= @stock.ticker %></br> は存在しません
+<% else %>
+  <img src="<%= @logo.url %>" alt="company_logo" height="200" width="200"></br><br>
+<% end %>
+
+<% begin %>
   <% @ticker = StockQuote::Stock.quote(@stock.ticker) %>
 <% rescue StandardError %>
   <% @ticker = nil %>
@@ -7,6 +18,7 @@
   銘柄: <%= @stock.ticker %></br> は存在しません
 <% else %>
   <strong><%= @ticker.company_name %></strong></br><br>
+  <%= @ticker.symbol%></br>
   銘柄: <%= @ticker.symbol%></br>
   株価: $<%= number_with_precision(@ticker.latest_price, :precision => 2, :delimiter => ',')%></br>
   時価総額: $<%= number_with_precision(@ticker.market_cap, :precision => 2, :delimiter => ',')%></br>
