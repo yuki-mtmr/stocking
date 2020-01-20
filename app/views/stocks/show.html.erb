@@ -1,13 +1,17 @@
-<% @ticker = StockQuote::Stock.quote(@stock.ticker) %>
-        <% if !@ticker %>
-          銘柄: <%= @stock.ticker %></br> は存在しません
-        <% else %>
-          <strong><%= @ticker.company_name %></strong></br><br>
-          銘柄: <%= @ticker.symbol%></br>
-          株価: $<%= number_with_precision(@ticker.latest_price, :precision => 2, :delimiter => ',')%></br>
-          時価総額: $<%= number_with_precision(@ticker.market_cap, :precision => 2, :delimiter => ',')%></br>
-        <% end %>
-        </br>
+<% begin %>
+  <% @ticker = StockQuote::Stock.quote(stock.ticker) %>
+<% rescue StandardError %>
+  <% @ticker = nil %>
+<% end %>
+<% if !@ticker %>
+  銘柄: <%= @stock.ticker %></br> は存在しません
+<% else %>
+  <strong><%= @ticker.company_name %></strong></br><br>
+  銘柄: <%= @ticker.symbol%></br>
+  株価: $<%= number_with_precision(@ticker.latest_price, :precision => 2, :delimiter => ',')%></br>
+  時価総額: $<%= number_with_precision(@ticker.market_cap, :precision => 2, :delimiter => ',')%></br>
+<% end %>
+</br>
 
 <%= link_to 'Edit', edit_stock_path(@stock) %> |
 <%= link_to 'Back', stocks_path %>
