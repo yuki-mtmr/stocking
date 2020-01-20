@@ -1,6 +1,6 @@
 # Stocking
 
-This is my first Ruby on  Rails app, it's a stock market app!
+APIを使った株価情報参照アプリ!
 
 https://stock177att.herokuapp.com
 
