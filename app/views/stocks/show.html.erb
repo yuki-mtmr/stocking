@@ -1,5 +1,5 @@
 <% begin %>
-  <% @ticker = StockQuote::Stock.quote(stock.ticker) %>
+  <% @ticker = StockQuote::Stock.quote(@stock.ticker) %>
 <% rescue StandardError %>
   <% @ticker = nil %>
 <% end %>
